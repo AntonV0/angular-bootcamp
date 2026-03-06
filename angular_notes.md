@@ -16,13 +16,16 @@ Components are the building blocks of an Angular application. Each component con
 1. **Template**: Defines the HTML structure of the component.
 2. **Class**: Contains the logic and data for the component, written in TypeScript.
 3. **Styles**: Defines the CSS styles for the component.
-4. **Metadata**: Provides additional information about the component, such as its selector and template URL, using the `@Component` decorator.
-5. **Lifecycle Hooks**: Angular provides lifecycle hooks that allow you to tap into key moments in a component's lifecycle, such as initialization (`ngOnInit`), changes (`ngOnChanges`), and destruction (`ngOnDestroy`).
-6. **Input and Output**: Components can receive data from parent components using `@Input` and emit events to parent components using `@Output`.
-7. **Component Interaction**: Components can interact with each other through property binding, event binding, and using services for shared state management.
-8. **Component Communication**: Angular provides various ways for components to communicate with each other, including using services, event emitters, and the `@ViewChild` decorator for accessing child components.
-9. **Component Reusability**: Components can be reused across different parts of an application, promoting modularity and maintainability. You can create reusable components for common UI elements like buttons, forms, and modals.
-10. **Component Testing**: Angular provides tools for testing components, including unit tests with Jasmine and end-to-end tests with Protractor. Writing tests for components helps ensure their functionality and reliability.
+
+Other important aspects of components include:
+
+1. **Metadata**: Provides additional information about the component, such as its selector and template URL, using the `@Component` decorator.
+2. **Lifecycle Hooks**: Angular provides lifecycle hooks that allow you to tap into key moments in a component's lifecycle, such as initialization (`ngOnInit`), changes (`ngOnChanges`), and destruction (`ngOnDestroy`).
+3. **Input and Output**: Components can receive data from parent components using `@Input` and emit events to parent components using `@Output`.
+4. **Component Interaction**: Components can interact with each other through property binding, event binding, and using services for shared state management.
+5. **Component Communication**: Angular provides various ways for components to communicate with each other, including using services, event emitters, and the `@ViewChild` decorator for accessing child components.
+6. **Component Reusability**: Components can be reused across different parts of an application, promoting modularity and maintainability. You can create reusable components for common UI elements like buttons, forms, and modals.
+7. **Component Testing**: Angular provides tools for testing components, including unit tests with Jasmine and end-to-end tests with Protractor. Writing tests for components helps ensure their functionality and reliability.
 
 ### Modules
 Modules are used to organize an Angular application into cohesive blocks of functionality. An Angular application typically has a root module (AppModule) and can have multiple feature modules. Modules help in managing dependencies and improving the maintainability of the application.
@@ -81,6 +84,7 @@ Angular provides robust support for testing applications. You can use tools like
 
 - Create a new project with: `ng new project-name`
 - cd into the project folder: `cd project-name`
+- Check the version of Angular: `ng version`
 - Start the development server: `ng serve` or use the alias `npm start`
 - Open the application in a browser at `http://localhost:4200/`
 
@@ -156,6 +160,13 @@ Project-name/
 Other important files added when creating an Angular project include:
 - `README.md`: A markdown file that provides an overview of the project, instructions for setup, and other relevant information.
 - `LICENSE`: A file that specifies the licensing terms for the project.
+
+### Structure of components in Angular
+In Angular, components are organised in a modular way. Each component typically consists of the following files:
+- `component.ts`: The TypeScript file that defines the component's class, logic, and metadata using the `@Component` decorator.
+- `component.html`: The HTML template file that defines the structure and layout of the component's view.
+- `component.css`: The CSS file that contains styles specific to the component, which are applied only to the component's template.
+- `component.spec.ts`: The TypeScript file that contains unit tests for the component, ensuring its functionality works as expected.
 
 
 ## Conclusion
