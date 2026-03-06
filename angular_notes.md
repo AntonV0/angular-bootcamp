@@ -77,6 +77,87 @@ The Angular CLI (Command Line Interface) is a powerful tool that helps developer
 ## Testing
 Angular provides robust support for testing applications. You can use tools like Jasmine and Karma for unit testing components and services, and Protractor for end-to-end testing. Writing tests helps ensure the reliability and maintainability of your application.
 
+## Angular Project Structure (Modern Angular - Standalone)
+
+- Create a new project with: `ng new project-name`
+- cd into the project folder: `cd project-name`
+- Start the development server: `ng serve` or use the alias `npm start`
+- Open the application in a browser at `http://localhost:4200/`
+
+
+### A typical modern Angular project created with the Angular CLI contains the following important files and folders:
+```
+Project-name/
+│
+├── .angular/                 # Angular CLI cache (build optimisation files)
+│
+├── .github/                  # GitHub configuration
+│   └── copilot-instructions.md   # Instructions for GitHub Copilot AI assistant (optional)
+│
+├── .vscode/                  # VS Code workspace settings
+│   ├── extensions.json       # Recommended extensions for this project
+│   ├── launch.json           # Debug configuration
+│   ├── mcp.json              # VS Code tool configuration (optional)
+│   └── tasks.json            # Custom build or run tasks
+│
+├── node_modules/             # Installed npm packages and dependencies
+│
+├── public/                   # Static files served directly
+│   └── favicon.ico           # Website icon shown in browser tab
+│
+├── src/                      # Main application source code
+│   │
+│   ├── app/                  # Core Angular application code
+│   │
+│   │   ├── app.config.ts     # Global application configuration
+│   │   │                     # Registers providers, routing, and services
+│   │   │
+│   │   ├── app.css           # Styles specific to the root component
+│   │   │
+│   │   ├── app.html          # Template of the root component
+│   │   │
+│   │   ├── app.routes.ts     # Application routing configuration
+│   │   │                     # Defines navigation between pages/components
+│   │   │
+│   │   ├── app.spec.ts       # Unit tests for the root component
+│   │   │
+│   │   └── app.ts            # Root component of the application
+│   │                         # Main UI entry point
+│   │
+│   ├── index.html            # Main HTML page loaded by the browser
+│   │                         # Angular injects the app into this page
+│   │
+│   ├── main.ts               # Application entry point
+│   │                         # Bootstraps the Angular application
+│   │
+│   └── styles.css            # Global styles applied across the entire app
+│
+├── .editorconfig             # Code style rules for editors
+│
+├── .gitignore                # Files and folders Git should ignore
+│
+├── .prettierrc               # Prettier formatting rules for consistent code style
+│
+├── angular.json              # Angular CLI workspace configuration
+│                             # Defines build settings, assets, and project structure
+│
+├── package.json              # Project metadata and npm dependencies
+│                             # Also defines scripts like `npm start`
+│
+├── package-lock.json         # Locks exact versions of installed dependencies
+│
+├── tsconfig.json             # Base TypeScript compiler configuration
+│
+├── tsconfig.app.json         # TypeScript config specifically for the Angular app
+│
+└── tsconfig.spec.json        # TypeScript configuration for unit tests
+```
+
+Other important files added when creating an Angular project include:
+- `README.md`: A markdown file that provides an overview of the project, instructions for setup, and other relevant information.
+- `LICENSE`: A file that specifies the licensing terms for the project.
+
+
 ## Conclusion
 Angular is a powerful framework for building modern web applications. By understanding its core concepts such as components and modules, services, directives, and data binding, developers can create dynamic and responsive applications. The Angular CLI further enhances productivity by providing a streamlined workflow for development and deployment.
 
