@@ -1,1 +1,8 @@
 <p>user works!</p>
+
+<!-- This line uses Angular's interpolation syntax to display the value of the 'name' property defined in the User component. When the component is rendered, it will show the h3 tag because the 'name' property is initialised with the string 'User Component'. -->
+<h3>Name is: {{ name }}</h3>
+<h3>Count is: {{ count }}</h3>
+<button (click)="increment()">Increment</button>
+
+<!-- This button element has a click event binding that calls the 'increment' method defined in the User component. When the button is clicked, it will execute the increment method, which increases the value of the 'count' property by 1. The updated count will then be reflected in the h3 tag due to Angular's data binding. -->
