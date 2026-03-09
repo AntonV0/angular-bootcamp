@@ -10,12 +10,52 @@ Angular is a popular front-end web application framework developed by Google. It
 4. Mobile Applications: With the help of frameworks like Ionic, Angular can be used to build cross-platform mobile applications.
 5. Admin Dashboards: Angular's component-based architecture and powerful data binding make it ideal for building complex admin dashboards and data visualization tools.
 
+## Angular Architecture
+Angular follows a component-based architecture, where the application is built as a collection of reusable components. Each component encapsulates its own logic, template, and styles, promoting modularity and maintainability (it is basically a section of the UI). The architecture also includes services for handling business logic and data management, directives for manipulating the DOM, and modules for organising related components and services.
+
+### Architecture Diagram
+```
+Angular Application
+│
+├── Modules
+│   ├── Feature Modules
+│   └── Shared Modules
+│
+├── Components
+│   ├── Root Component (AppComponent)
+│   ├── Child Components
+│   └── Reusable Components
+│
+├── Services
+│   ├── Data Services
+│   ├── Authentication Services
+│   └── Utility Services
+│
+├── Directives
+│   ├── Structural Directives (*ngIf, *ngFor)
+│   └── Attribute Directives (ngClass, ngStyle)
+│
+├── Pipes
+│   ├── Built-in Pipes (DatePipe, CurrencyPipe)
+│   └── Custom Pipes
+│
+└── Routing
+    ├── Route Configuration
+    └── Navigation Guards
+```
+
 ## Key Concepts
 ### Components
 Components are the building blocks of an Angular application. Each component consists of three main parts:
 1. **Template**: Defines the HTML structure of the component.
 2. **Class**: Contains the logic and data for the component, written in TypeScript.
 3. **Styles**: Defines the CSS styles for the component.
+
+Creating a component makes these four files:
+1. `component.ts`: The TypeScript file that defines the component's class and logic.
+2. `component.html`: The HTML template file that defines the structure and layout of the component's view.
+3. `component.css`: The CSS file that contains styles specific to the component.
+4. `component.spec.ts`: The TypeScript file that contains unit tests for the component, ensuring its functionality works as expected.
 
 Other important aspects of components include:
 
@@ -27,24 +67,40 @@ Other important aspects of components include:
 6. **Component Reusability**: Components can be reused across different parts of an application, promoting modularity and maintainability. You can create reusable components for common UI elements like buttons, forms, and modals.
 7. **Component Testing**: Angular provides tools for testing components, including unit tests with Jasmine and end-to-end tests with Protractor. Writing tests for components helps ensure their functionality and reliability.
 
+### Templates
+Templates define the HTML structure of a component's view (basically the HTML UI of the component). They can include standard HTML elements, Angular directives, and data binding expressions. Templates are defined in the `component.html` file and can be associated with a component using the `templateUrl` property in the `@Component` decorator.
+ 
 ### Modules
-Modules are used to organize an Angular application into cohesive blocks of functionality. An Angular application typically has a root module (AppModule) and can have multiple feature modules. Modules help in managing dependencies and improving the maintainability of the application.
+Modules are used to organise an Angular application into cohesive blocks of functionality. An Angular application typically has a root module (AppModule) and can have multiple feature modules. Modules help in managing dependencies and improving the maintainability of the application.
 
 ### Services
 Services are used to share data and logic across different components in an Angular application. They are typically used for tasks such as fetching data from APIs, managing state, and handling business logic. Services are created using the `@Injectable` decorator and can be injected into components or other services using Angular's dependency injection system.
 
 ### Directives
 Directives are special markers in the DOM that tell Angular to do something with a DOM element. There are three types of directives:
-1. **Component Directives**: These are directives with a template, used to create components
-2. **Structural Directives**: These change the structure of the DOM, such as `*ngIf` and `*ngFor`.
-3. **Attribute Directives**: These change the appearance or behavior of an element, such as `ngClass` and `ngStyle`.
+1. **Component Directives**: These are directives with a template, used to create components. For example, `<app-user></app-user>` is a component directive that renders the User component.
+2. **Structural Directives**: These change the structure of the DOM, such as `*ngIf` and `*ngFor`. For example,
+```
+<p *ngIf="isVisible">This paragraph will only be displayed if isVisible is true.</p>
+```
+3. **Attribute Directives**: These change the appearance or behavior of an element, such as `ngClass` and `ngStyle`. For example,
+```
+<div [ngClass]="{'active': isActive}">This div will have the 'active' class if isActive is true.</div>
+``` 
+Another example using `ngStyle`:
+```
+<div [ngStyle]="{'color': isRed ? 'red' : 'blue'}">This div will be red if isRed is true, otherwise it will be blue.</div>
+```
 
 ### Data Binding
 Data binding is a powerful feature in Angular that allows you to synchronize data between the component class and the template. There are four types of data binding:
 1. **Interpolation**: `{{ expression }}` - Used to display data from the component in the template.
-2. **Property Binding**: `[property]="expression"` - Used to bind a property of an HTML element to a component property.
-3. **Event Binding**: `(event)="handler"` - Used to bind an event to a method in the component.
-4. **Two-way Binding**: `[(ngModel)]="property"` - Used to bind a property in the component to an input element in the template, allowing for two-way data flow.
+2. **Property Binding**: `[property]="expression"` - Used to bind a property of an HTML element to a component property (saves data from component to HTML element property).
+3. **Event Binding**: `(event)="handler"` - Used to bind an event to a method in the component (sends data from HTML element to component).
+4. **Two-way Binding**: `[(ngModel)]="property"` - Used to bind a property in the component to an input element in the template, allowing for two-way data flow (can read and update data from HTML to component and vice versa).
+
+### Routing
+Angular's Router module allows you to define navigation paths in your application. You can configure routes to map URLs to specific components, enabling users to navigate between different views of the application. The router also supports features like route guards for protecting routes and lazy loading for improving performance.
 
 ## Angular CLI
 The Angular CLI (Command Line Interface) is a powerful tool that helps developers create, build, and manage Angular applications. It provides commands for generating components, services, modules, and more, as well as for running development servers and building production-ready applications.
@@ -68,14 +124,12 @@ The Angular CLI (Command Line Interface) is a powerful tool that helps developer
 - `ng generate interface [interface-name]`: Generates a new interface.
 - `ng generate enum [enum-name]`: Generates a new enum.
 
-
-
 ## Best Practices
 1. **Use Angular CLI**: Leverage the Angular CLI for generating components, services, and modules to maintain consistency and save time.
 2. **Organize Code with Modules**: Use feature modules to organize related components and services, improving maintainability.
 3. **Use Services for Business Logic**: Keep business logic in services rather than components to promote separation of concerns and reusability.
 4. **Use Reactive Forms**: For complex forms, use Reactive Forms for better control and validation.
-5. **Optimize Performance**: Use lazy loading for modules and components to improve the performance of your application.
+5. **Optimise Performance**: Use lazy loading for modules and components to improve the performance of your application.
 
 ## Testing
 Angular provides robust support for testing applications. You can use tools like Jasmine and Karma for unit testing components and services, and Protractor for end-to-end testing. Writing tests helps ensure the reliability and maintainability of your application.
@@ -167,7 +221,6 @@ In Angular, components are organised in a modular way. Each component typically 
 - `component.html`: The HTML template file that defines the structure and layout of the component's view.
 - `component.css`: The CSS file that contains styles specific to the component, which are applied only to the component's template.
 - `component.spec.ts`: The TypeScript file that contains unit tests for the component, ensuring its functionality works as expected.
-
 
 ## Conclusion
 Angular is a powerful framework for building modern web applications. By understanding its core concepts such as components and modules, services, directives, and data binding, developers can create dynamic and responsive applications. The Angular CLI further enhances productivity by providing a streamlined workflow for development and deployment.
