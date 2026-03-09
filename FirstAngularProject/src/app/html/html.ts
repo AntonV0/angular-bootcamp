@@ -2,10 +2,12 @@
 
 import { Component } from '@angular/core';
 import { User } from '../user/user';
+import { RouterLink } from '@angular/router';
+import { Parent } from '../parent/parent';
 
 @Component({
   selector: 'app-html',
-  imports: [User],
+  imports: [User, RouterLink, Parent],
   templateUrl: './html.html',
   styleUrl: './html.css',
 })

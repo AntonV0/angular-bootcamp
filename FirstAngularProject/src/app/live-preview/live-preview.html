@@ -1,0 +1,8 @@
+<h2>Live Text Preview</h2>
+
+<input type ="text" [(ngModel)]="message" placeholder="Type something...">
+<!-- This input element is bound to the 'message' property in the LivePreview component using Angular's two-way data binding syntax [(ngModel)]. As the user types into the input field, the value of the 'message' property will be updated in real-time. The placeholder attribute provides a hint to the user about what to enter in the input field. -->
+
+<p>Live Preview: {{ message }}</p>
+<!-- This paragraph element displays the current value of the 'message' property using Angular's interpolation syntax {{ message }}. As the user types into the input field, the content of this paragraph will update in real-time to show the live preview of the text entered by the user. -->
+
