@@ -1,5 +1,6 @@
 <p>directives-component works!</p>
-
+<h2>Directives Component</h2>
+<h4>Structural Directive</h4>
 <button (click) = "toggleLogin()">
   {{ isLoggedIn ? 'Logout' : 'Login' }}
 </button>
@@ -9,15 +10,22 @@
   <h3>Please log in to see the content.</h3>
 }
 
-<h4>------Loop Directive------</h4>
+<h4>Loop Directive</h4>
+<p><b>List of students:</b></p>
 @for (student of students; track student) { <!-- The 'track student' part is used to optimise rendering by tracking items based on their identity, which can improve performance when the list changes. -->
   <p>{{ student }}</p>
 }
 
-<h4>------Switch Directive------</h4>
+<h4>Switch Directive</h4>
 <h2>Select User Role</h2>
 <label>
   <input type="radio" name="role" value="admin" [(ngModel)]="role"> Admin
+</label>
+<label>
+  <input type="radio" name="role" value="developer" [(ngModel)]="role"> Developer
+</label>
+<label>
+  <input type="radio" name="role" value="manager" [(ngModel)]="role"> Manager
 </label>
 <label>
   <input type="radio" name="role" value="user" [(ngModel)]="role"> User
@@ -25,9 +33,43 @@
 <label>
   <input type="radio" name="role" value="guest" [(ngModel)]="role"> Guest
 </label>
-<!-- <div [ngSwitch]="role">
-  <p *ngSwitchCase="'admin'">You are an admin.</p>
-  <p *ngSwitchCase="'user'">You are a user.</p>
-  <p *ngSwitchCase="'guest'">You are a guest.</p>
-  <p *ngSwitchDefault>Select a role.</p>
-</div> -->
+
+@switch (role) {
+  @case ('admin') {
+    <p>Welcome back, Admin! You have admin privileges.</p>
+  }
+  @case ('developer') {
+    <p>Welcome back, Developer! You have developer privileges.</p>
+  }
+  @case ('manager') {
+    <p>Welcome back, Manager! You have manager privileges.</p>
+  }
+  @case ('user') {
+    <p>Welcome back, User! You have user privileges.</p>
+  }
+  @case ('guest') {
+    <p>Welcome, Guest! You have limited access.</p>
+  }
+  @default {
+    <p>Please select a role.</p>
+  }
+}
+
+<h4>Attribute Directive</h4>
+<p [style.color]="isRed ? 'red' : 'black'"> 
+  <b>This uses Angular's property binding to set the color style based on the value of the 'isRed' property</b>
+</p>
+<button (click)="isRed = !isRed">Toggle Colour</button>
+
+<br><br>
+
+<p [style.color]="randomColor">
+  <b>This text changes to a random RGB colour</b>
+</p>
+<button (click)="generateRandomColor()">Random Colour</button>
+
+<h4>Class Attribute Directive</h4>
+<p [class.active]="isActive">
+  <b>This text uses Angular's class binding to apply the 'active' class based on the value of the 'isActive' property</b>
+</p>
+<button (click)="toggleActive()">Toggle Active</button>

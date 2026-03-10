@@ -19,5 +19,27 @@ export class DirectivesComponent {
   students = ['Alice', 'Bob', 'Charlie', 'David', 'Eve'];
 
   // 3. Switch Directive (conditionally displays elements based on a value)
-  role: string = 'admin';
+  role: string = '';
+
+  // 4. Attribute Directive (modifies the appearance or behavior of an element)
+  isRed = true;
+
+  // Random RGB colour
+  randomColor = 'black';
+
+  generateRandomColor() {
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+
+    this.randomColor = `rgb(${r}, ${g}, ${b})`;
+  }
+
+  // 5. Class Attribute Directive (dynamically applies CSS classes to an element)
+  isActive = false;
+
+  toggleActive() {
+    this.isActive = !this.isActive;
+  }
 }
+
