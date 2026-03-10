@@ -1,0 +1,33 @@
+<p>directives-component works!</p>
+
+<button (click) = "toggleLogin()">
+  {{ isLoggedIn ? 'Logout' : 'Login' }}
+</button>
+@if (isLoggedIn) {
+  <h3>Welcome back, user!</h3>
+} @else {
+  <h3>Please log in to see the content.</h3>
+}
+
+<h4>------Loop Directive------</h4>
+@for (student of students; track student) { <!-- The 'track student' part is used to optimise rendering by tracking items based on their identity, which can improve performance when the list changes. -->
+  <p>{{ student }}</p>
+}
+
+<h4>------Switch Directive------</h4>
+<h2>Select User Role</h2>
+<label>
+  <input type="radio" name="role" value="admin" [(ngModel)]="role"> Admin
+</label>
+<label>
+  <input type="radio" name="role" value="user" [(ngModel)]="role"> User
+</label>
+<label>
+  <input type="radio" name="role" value="guest" [(ngModel)]="role"> Guest
+</label>
+<!-- <div [ngSwitch]="role">
+  <p *ngSwitchCase="'admin'">You are an admin.</p>
+  <p *ngSwitchCase="'user'">You are a user.</p>
+  <p *ngSwitchCase="'guest'">You are a guest.</p>
+  <p *ngSwitchDefault>Select a role.</p>
+</div> -->
