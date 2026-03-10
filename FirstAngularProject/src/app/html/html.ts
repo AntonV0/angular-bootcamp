@@ -4,10 +4,11 @@ import { Component } from '@angular/core';
 import { User } from '../user/user';
 import { RouterLink } from '@angular/router';
 import { Parent } from '../parent/parent';
+import { FormHandling } from '../form-handling/form-handling';
 
 @Component({
   selector: 'app-html',
-  imports: [User, RouterLink, Parent],
+  imports: [User, RouterLink, Parent, FormHandling],
   templateUrl: './html.html',
   styleUrl: './html.css',
 })

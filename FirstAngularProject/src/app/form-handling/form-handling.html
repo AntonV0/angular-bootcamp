@@ -1,0 +1,67 @@
+<h2>Registration Form</h2>
+
+<form #form="ngForm" (ngSubmit)="submitForm(form)">
+  <!-- #form -> template reference variable that allows us to access the form's properties and methods in the template.
+  (ngSubmit)="submitForm(form)" -> event binding that listens for the form's submit event and calls the submitForm() method defined in the FormHandling component when the form is submitted, passing the form object as an argument. -->
+
+  <!-- NAME -->
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name" [(ngModel)]="user.name" required minlength="7" #name="ngModel">
+  <!-- This input element is bound to the 'user.name' property in the FormHandling component using Angular's two-way data binding syntax [(ngModel)]. As the user types into the input field, the value of 'user.name' will be updated in real-time. The required attribute ensures that the field must be filled out before the form can be submitted, and minlength="7" enforces a minimum length of 7 characters for the input. The #name="ngModel" creates a template reference variable that allows us to access the validation state of this input field. -->
+
+  @if (name.invalid && form.submitted) {
+    @if (name.errors?.['required']) {
+      <!-- Checks if the validation error is due to the required field being empty -->
+      <small>Name is required.</small>
+    }
+  }
+
+  @if (name.errors?.['minlength']) {
+    <!-- Checks if the validation error is due to the input being shorter than the minimum length -->
+    <small>Name must be at least 7 characters long.</small>
+  }
+  <br><br>
+
+  <!-- EMAIL -->
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email" [(ngModel)]="user.email" required email #email="ngModel">
+
+  @if (email.invalid && form.submitted) {
+    @if (email.errors?.['required']) {
+      <!-- Checks if the validation error is due to the required field being empty -->
+      <small>Email is required.</small>
+    }
+  }
+
+  @if (email.errors?.['email']) {
+    <!-- Checks if the validation error is due to the input not being a valid email address -->
+    <small>Please enter a valid email address.</small>
+  }
+  <br><br>
+
+  <!-- PASSWORD -->
+  <label for="password">Password:</label>
+  <input type="password" id="password" name="password" [(ngModel)]="user.password" required minlength="6" #password="ngModel">
+  @if (password.invalid && form.submitted) {
+    @if (password.errors?.['required']) {
+      <small>Password is required.</small>
+    }
+  } 
+
+  @if (password.errors?.['minlength']) {
+    <small>Password must be at least 6 characters long.</small>   
+  }
+  <br><br>
+
+  <!-- SUBMIT BUTTON -->
+  <button type="submit" [disabled]="form.invalid">Submit</button>
+  <!-- This button is of type "submit", which triggers the form submission when clicked. The [disabled]="form.invalid" attribute uses Angular's property binding to disable the button if the form is invalid, meaning that the user cannot submit the form until all validation requirements are met. -->
+</form>
+
+@if (submittedUser) {
+  <h3>Submitted User Data:</h3>
+  <p>Name: {{ submittedUser.name }}</p>
+  <p>Email: {{ submittedUser.email }}</p>
+  <p>Password: {{ submittedUser.password }}</p>
+}
+<!-- This section conditionally displays the submitted user data after the form has been submitted. The *ngIf directive checks if the 'submittedUser' property is not null, and if so, it renders the user's name, email, and password using Angular's interpolation syntax {{ submittedUser.property }} to display the values. -->
