@@ -24,15 +24,32 @@ main {
 
 /* Headings */
 
-h1, h2, h3 {
+h1, h2, h3, h4 {
   margin-top: 30px;
   color: #2c3e50;
+}
+
+h4 {
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 6px;
+  margin-bottom: 20px;
+  width: 90%;
 }
 
 /* Paragraphs */
 
 p {
   color: #555;
+}
+
+/* Dividers */
+
+hr {
+  border: none;
+  height: 4px;
+  background: linear-gradient(to right, #3f51b5, #8b9cff);
+  margin: 35px 0;
+  border-radius: 3px;
 }
 
 /* Buttons */
