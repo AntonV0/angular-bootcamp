@@ -1,1 +1,103 @@
 /* Global styles (for entire application) */
+
+/* Page layout */
+
+body {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: #f4f6f8;
+  margin: 0;
+  padding: 40px;
+  line-height: 1.6;
+}
+
+/* Main content card */
+
+main {
+  max-width: 600px;
+  margin: 40px auto;
+  background: white;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  text-align: left;
+}
+
+/* Headings */
+
+h1, h2, h3 {
+  margin-top: 30px;
+  color: #2c3e50;
+}
+
+/* Paragraphs */
+
+p {
+  color: #555;
+}
+
+/* Buttons */
+
+button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  background: #3f51b5;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+button:hover {
+  background: #2f3fa0;
+}
+
+/* Form styling */
+
+form {
+  margin-top: 20px;
+  max-width: 400px;
+}
+
+label {
+  display: block;
+  margin-top: 15px;
+  font-weight: 600;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+input:focus {
+  outline: none;
+  border-color: #3f51b5;
+  box-shadow: 0 0 0 2px rgba(63,81,181,0.2);
+}
+
+/* Submit button */
+
+input[type="submit"] {
+  background: #3f51b5;
+  color: white;
+  border: none;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background: #2f3fa0;
+}
+
+/* Section spacing */
+
+section {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+}
