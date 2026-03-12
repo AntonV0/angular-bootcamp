@@ -69,6 +69,13 @@ Other important aspects of components include:
 
 ### Templates
 Templates define the HTML structure of a component's view (basically the HTML UI of the component). They can include standard HTML elements, Angular directives, and data binding expressions. Templates are defined in the `component.html` file and can be associated with a component using the `templateUrl` property in the `@Component` decorator.
+
+### Template References
+Template references are a way to access DOM elements or Angular components directly from the template. They are created using the `#` symbol followed by a name, and can be used to reference elements in the template for various purposes, such as setting focus on an input element or calling methods on a child component. For example:
+```<input type="text" #inputBox placeholder="Enter your name">
+<button (click)="inputBox.focus()">Focus Input</button>
+```
+
  
 ### Modules
 Modules are used to organise an Angular application into cohesive blocks of functionality. An Angular application typically has a root module (AppModule) and can have multiple feature modules. Modules help in managing dependencies and improving the maintainability of the application.
@@ -123,6 +130,16 @@ The Angular CLI (Command Line Interface) is a powerful tool that helps developer
 - `ng generate class [class-name]`: Generates a new class.
 - `ng generate interface [interface-name]`: Generates a new interface.
 - `ng generate enum [enum-name]`: Generates a new enum.
+
+## Angular Component Lifecycle Hooks
+Angular components have a lifecycle that consists of various stages, and Angular provides lifecycle hooks that allow you to tap into these stages to perform specific actions. Some of the most commonly used lifecycle hooks include:
+1. `ngOnInit()`: Called once the component is initialized. This is a good place to perform component initialization logic, such as fetching data from a service.
+2. `ngOnChanges(changes: SimpleChanges)`: Called whenever an input property changes. This is useful for reacting to changes in input data.
+3. `ngOnDestroy()`: Called just before the component is destroyed. This is a good place to clean up resources, such as unsubscribing from observables or detaching event handlers.
+4. `ngAfterViewInit()`: Called after the component's view has been fully initialized. This is useful for performing actions that require access to the component's view, such as manipulating the DOM or initializing third-party libraries.
+5. `ngAfterContentInit()`: Called after the component's content has been projected into the view. This is useful for performing actions that require access to projected content, such as querying for content children.
+6. `ngAfterViewChecked()`: Called after the component's view has been checked for changes. This is useful for performing actions that need to occur after the view has been updated, such as updating the UI based on changes in data.
+
 
 ## Best Practices
 1. **Use Angular CLI**: Leverage the Angular CLI for generating components, services, and modules to maintain consistency and save time.
