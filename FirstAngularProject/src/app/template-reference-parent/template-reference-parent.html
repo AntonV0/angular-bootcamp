@@ -1,0 +1,23 @@
+<p>template-reference-parent works!</p>
+
+<h3>Video Controller From Parent</h3>
+<section>
+  <app-template-reference-child #videoPlayer></app-template-reference-child>
+  <!-- The #videoPlayer is a template reference variable that allows the parent component to access the child component's properties and methods. -->
+</section>
+
+<br><br>
+
+<section class="video-controls">
+  <button (click)="videoPlayer.play()">Play Video</button>
+  <button (click)="videoPlayer.pause()">Pause Video</button>
+  <!-- These buttons call the play() and pause() methods of the child component (videoPlayer) when clicked, demonstrating how the parent component can control the child component using template references. -->
+  <!-- <p>Video Time: {{ videoPlayer.currentTime }}</p> -->
+</section>
+
+<h3>Video Player (Template Reference Parent Component)</h3>
+<h4>Video from https://www.w3schools.com/html/mov_bbb.mp4</h4>
+<video width="320" height="240" controls>
+  <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
