@@ -1,1 +1,61 @@
-/* You can add global styles to this file, and also import other style files */
+/* Page layout */
+
+body {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: #f4f6f8;
+  margin: 0;
+  padding: 40px;
+  line-height: 1.6;
+}
+
+/* Main content container */
+
+main {
+  max-width: 700px;
+  margin: 40px auto;
+  background: white;
+  padding: 40px;
+  border-radius: 10px;
+  border: 3px solid #021f58;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  text-align: left;
+}
+
+/* Heading */
+
+h1 {
+  margin-top: 0;
+  color: #2c3e50;
+}
+
+/* Navigation section */
+
+nav {
+  margin: 20px 0;
+  padding-bottom: 15px;
+  border-bottom: 3px solid #021f58;
+}
+
+/* Buttons */
+
+button {
+  display: inline-block;
+  margin-right: 10px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 2px;
+  background: #3f51b5;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #2f3fa0;
+}
+
+/* Routed content spacing */
+
+router-outlet + * {
+  margin-top: 20px;
+}
