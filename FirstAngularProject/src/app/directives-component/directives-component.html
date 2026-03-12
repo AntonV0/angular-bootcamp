@@ -73,3 +73,8 @@
   <b>This text uses Angular's class binding to apply the 'active' class based on the value of the 'isActive' property</b>
 </p>
 <button (click)="toggleActive()">Toggle Active</button>
+
+<h4>Style Attribute Directive (ngStyle)</h4>
+<p [ngStyle]="getStyles()">This text uses Angular's style binding to apply styles based on the value of the 'isBlue' property and the [ngStyle] function</p>
+<button (click)="toggleStyle()">Toggle Style</button>
+

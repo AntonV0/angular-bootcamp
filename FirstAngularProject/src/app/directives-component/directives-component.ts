@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { NgStyle } from '@angular/common';
 
 @Component({
   selector: 'app-directives-component',
-  imports: [FormsModule],
+  imports: [FormsModule, NgStyle],
   templateUrl: './directives-component.html',
   styleUrl: './directives-component.css',
 })
@@ -40,6 +41,21 @@ export class DirectivesComponent {
 
   toggleActive() {
     this.isActive = !this.isActive;
+  }
+
+  // 6. Style Attribute Directive (dynamically applies inline styles to an element)
+  isBlue = true;
+
+  getStyles(){
+    return{
+      color: this.isBlue ? 'blue' : 'red',
+      fontSize: '20px',
+      fontWeight: 'bold'
+    }
+  }
+  
+  toggleStyle() {
+    this.isBlue = !this.isBlue;
   }
 }
 

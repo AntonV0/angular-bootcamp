@@ -6,10 +6,11 @@ import { RouterLink } from '@angular/router';
 import { Parent } from '../parent/parent';
 import { FormHandling } from '../form-handling/form-handling';
 import { DirectivesComponent } from '../directives-component/directives-component';
+import { TemplateReferenceParent } from '../template-reference-parent/template-reference-parent';
 
 @Component({
   selector: 'app-html',
-  imports: [User, RouterLink, Parent, FormHandling, DirectivesComponent],
+  imports: [User, RouterLink, Parent, FormHandling, DirectivesComponent, TemplateReferenceParent],
   templateUrl: './html.html',
   styleUrl: './html.css',
 })

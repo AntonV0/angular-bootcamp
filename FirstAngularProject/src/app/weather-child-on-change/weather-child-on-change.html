@@ -1,0 +1,10 @@
+<p>weather-child-on-change works!</p>
+<h3>City: {{ city }}</h3>
+
+<h3>API Data will be displayed when HTML file is saved in VS Code, and disappears on refresh</h3>
+@if (weatherData) {
+  <p><b>Temperature:</b> {{ weatherData.main.temp }}°C</p>
+  <p><b>Description:</b> {{ weatherData.weather[0].description }}</p>
+} @else {
+  <p>Loading weather data...</p>
+}

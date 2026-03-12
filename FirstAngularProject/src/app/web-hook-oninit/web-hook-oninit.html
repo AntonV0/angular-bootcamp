@@ -1,0 +1,32 @@
+<p>web-hook-oninit works!</p>
+
+<!-- The weather data is fetched in ngOnInit(), which runs once each time the component is created. 
+This includes the initial page load and page refresh. -->
+<h3><u>Using ngOnInit()</u></h3>
+@if (weatherData) {
+  <h2>Weather Information: {{ weatherData.name }}</h2>
+  <p><b>City:</b> {{ weatherData.name }}</p>
+  <p><b>Temperature:</b> {{ weatherData.main.temp }}°C</p>
+  <p><b>Description:</b> {{ weatherData.weather[0].description }}</p>
+} @else {
+  <p>Loading weather data...</p>
+}
+
+<img [src]="image_path" alt="Dog Image from Assets">    
+
+<!-- ngAfterViewInit() runs after the component's view has been fully initialized. 
+It is useful for working with ViewChild elements, such as changing the heading style 
+or setting focus on the input box. -->
+<h3><u>Using ngAfterViewInit()</u></h3>
+<h2 #title>Angular ngAfterViewInit Example</h2>
+<input type="text" #inputBox placeholder="Please enter your name">
+
+<!-- ngOnDestroy() runs just before the component is destroyed. -->
+<h3><u>Using ngOnDestroy()</u></h3>
+<button (click)="toggle()">Pause/Restart Count (in console)</button>
+
+@if (showTimer) {
+  <app-hook-on-destroy></app-hook-on-destroy>
+} @else {
+  <p>Count is hidden. Click the button to restart it in the console.</p>
+}
