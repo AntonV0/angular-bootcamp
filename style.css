@@ -1,0 +1,100 @@
+/* Page */
+
+body {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: #f4f6f8;
+  margin: 0;
+  padding: 40px 20px;
+  line-height: 1.6;
+}
+
+/* Main container */
+
+main {
+  max-width: 900px;
+  min-width: 300px;
+  margin: 0 auto;
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+/* Headings */
+
+h1 {
+  margin-top: 0;
+  color: #2c3e50;
+}
+
+/* Card grid */
+
+section {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+/* Card */
+
+article {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  padding: 20px;
+  border-radius: 10px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+article:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+}
+
+/* Card title */
+
+article h2 {
+  margin-top: 0;
+}
+
+/* Button */
+
+a {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 16px;
+  background: #3f51b5;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+a:hover {
+  background: #2f3fa0;
+}
+
+/* GitHub link */
+
+.github-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  padding: 10px 16px;
+  background: #24292e;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.github-link:hover {
+  background: #000;
+}
+
+.github-link img {
+  width: 18px;
+  height: 18px;
+}
