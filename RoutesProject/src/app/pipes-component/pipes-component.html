@@ -1,0 +1,38 @@
+<p>pipes-component works!</p>
+<h2>Pipes Component</h2>
+
+<h3>1. Uppercase Pipe</h3>
+<p>{{ name | uppercase }}</p>
+
+<h3>2. Lowercase Pipe</h3>
+<p>{{ name | lowercase }}</p>
+
+<h3>3. Titlecase Pipe</h3>
+<p>{{ name | titlecase }}</p>
+
+<h3>4. Date Pipe</h3>
+<p>{{ today | date }}</p>
+<p>{{ today | date:'fullDate' }}</p>
+<p>{{ today | date:'shortDate' }}</p>
+<p>{{ today | date:'MM/dd/yyyy' }}</p>
+
+<h3>5. Currency Pipe</h3>
+<p>{{ price | currency }}</p>
+<p>{{ price | currency:'GBP' }}</p>
+<p>{{ price | currency:'USD' }}</p>
+
+<h3>6. Percent Pipe</h3>
+<p>{{ percentageValue | percent }}</p>
+
+<h3>7. Slice Pipe</h3>
+<p>{{ name | slice:0:5 }}</p>
+
+<h3>JSON Pipe</h3>
+<p>{{ student | json }}</p>
+
+<h3>Async Pipe</h3>
+<p>{{ asyncData$ | async }}</p>
+
+<h3>User Defined Pipe</h3>
+<p><b>Original Text:</b> {{ originalText }}</p>
+<p><b>Reversed Text:</b> {{ originalText | reverse }}</p>
