@@ -6,6 +6,8 @@ body {
   margin: 0;
   padding: 40px;
   line-height: 1.6;
+  color: #1a2b4c;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 /* Main content container */
@@ -19,13 +21,53 @@ main {
   border: 3px solid #021f58;
   box-shadow: 0 10px 25px rgba(0,0,0,0.08);
   text-align: left;
+  transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Heading */
+/* Headings */
+
+h1, h2, h3 {
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  margin-top: 0;
+  color: #1a2b4c;
+  transition: color 0.3s ease;
+}
+
+/* Main page title */
 
 h1 {
-  margin-top: 0;
+  font-size: 32px;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+}
+
+/* Section titles */
+
+h2 {
+  font-size: 24px;
+  margin-top: 30px;
+  margin-bottom: 10px;
   color: #2c3e50;
+}
+
+/* Subsection titles */
+
+h3 {
+  font-size: 18px;
+  margin-top: 20px;
+  margin-bottom: 8px;
+  color: #3f51b5;
+}
+
+/* Section divider */
+
+hr {
+  border: none;
+  height: 2px;
+  background: linear-gradient(to right, #3f51b5, #8b9cff);
+  margin: 35px 0;
+  border-radius: 3px;
 }
 
 /* Navigation section */
@@ -34,6 +76,7 @@ nav {
   margin: 20px 0;
   padding-bottom: 15px;
   border-bottom: 3px solid #021f58;
+  transition: border-color 0.3s ease;
 }
 
 /* Buttons */
@@ -48,14 +91,76 @@ button {
   color: white;
   font-size: 14px;
   cursor: pointer;
+  transition: background 0.3s ease;
 }
 
 button:hover {
   background: #2f3fa0;
 }
 
+.back-btn {
+  margin-top: 20px;
+  background: #6c757d;
+}
+
+.back-btn:hover {
+  background: #555;
+}
+
 /* Routed content spacing */
 
 router-outlet + * {
   margin-top: 20px;
+}
+
+/* Dark theme */
+
+body.dark {
+  background: #0f172a;
+  color: #e2e8f0;
+}
+
+body.dark main {
+  background: #1e293b;
+  border-color: #60a5fa;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+}
+
+body.dark h1,
+body.dark h2,
+body.dark h3 {
+  color: #f8fafc;
+}
+
+body.dark h2 {
+  color: #e2e8f0;
+}
+
+body.dark h3 {
+  color: #93c5fd;
+}
+
+body.dark nav {
+  border-bottom: 3px solid #60a5fa;
+}
+
+body.dark hr {
+  background: linear-gradient(to right, #60a5fa, #38bdf8);
+}
+
+body.dark button {
+  background: #2563eb;
+  color: white;
+}
+
+body.dark button:hover {
+  background: #1d4ed8;
+}
+
+body.dark .back-btn {
+  background: #475569;
+}
+
+body.dark .back-btn:hover {
+  background: #334155;
 }
