@@ -1,0 +1,18 @@
+<p>signals-component works!</p>
+
+<h3>Reactive Counter (Signal)</h3>
+<h4>{{ count() }}</h4>
+<button (click)="increment()">Increment</button>
+<hr>
+
+<h3>Non-Reactive Counter (Normal Variable)</h3>
+<h4>{{ count1 }}</h4>
+<button (click)="increment1()">Increment</button>
+<hr>
+
+<h3>Using Signals for Reactive State</h3>
+<h4>Price: {{ price() }}</h4>
+<h4>Quantity: {{ quantity() }}</h4>
+<button (click)="increaseQuantity()">+</button>
+<button (click)="decreaseQuantity()">-</button>
+<h4>Total: {{ total() }}</h4>
