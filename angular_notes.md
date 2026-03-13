@@ -140,6 +140,57 @@ Angular components have a lifecycle that consists of various stages, and Angular
 5. `ngAfterContentInit()`: Called after the component's content has been projected into the view. This is useful for performing actions that require access to projected content, such as querying for content children.
 6. `ngAfterViewChecked()`: Called after the component's view has been checked for changes. This is useful for performing actions that need to occur after the view has been updated, such as updating the UI based on changes in data.
 
+## Angular Services and Dependency Injection
+Services in Angular are used to share data and logic across different components. They are typically used for tasks such as fetching data from APIs, managing state, and handling business logic. Angular's dependency injection system allows you to inject services into components or other services, promoting modularity and reusability. To create a service, you can use the Angular CLI command `ng generate service [service-name]`, which will create a new service file with the `@Injectable` decorator. You can then inject the service into a component by adding it to the constructor of the component class. For example:
+```typescript
+import { MyService } from './my.service';
+@Component({
+  selector: 'app-my-component',
+  templateUrl: './my-component.html',
+  styleUrls: ['./my-component.css']
+})
+export class MyComponent {
+  constructor(private myService: MyService) {
+    // You can now use myService to access its methods and properties
+  }
+}
+```
+Services can also be provided at different levels in the application, such as at the root level (available throughout the entire application) or at the component level (available only to a specific component and its children). This allows for flexible and efficient management of dependencies in an Angular application.
+
+## Pipes
+Pipes in Angular are used to transform data in templates. They take in data as input and return a transformed version of that data. Angular provides several built-in pipes, such as `DatePipe`, `CurrencyPipe`, and `UpperCasePipe`, which can be used to format dates, currency values, and text, respectively. You can also create custom pipes to perform specific transformations that are not covered by the built-in pipes. 
+
+Common built-in pipes include:
+- `DatePipe`: Formats dates according to a specified format.
+- `CurrencyPipe`: Formats numbers as currency values.
+- `UpperCasePipe`: Transforms text to uppercase.
+- `LowerCasePipe`: Transforms text to lowercase.
+- `TitleCasePipe`: Transforms text to title case (first letter of each word capitalized).
+- `DecimalPipe`: Formats numbers as decimal values with specified precision.
+- `PercentPipe`: Formats numbers as percentages.
+- `JsonPipe`: Converts an object into a JSON string for display.
+- `SlicePipe`: Slices a portion of an array or string based on specified start and end indices.
+- `AsyncPipe`: Unwraps values from asynchronous sources such as Observables or Promises.
+- `CurrencyPipe`: Formats a number as currency according to locale rules.
+- `SlicePipe`: Slices an array or string into a subset based on specified start and end indices.
+- `NumberPipe`: Formats a number according to locale rules, with options for decimal places and grouping.
+
+To create a custom pipe, you can use the Angular CLI command `ng generate pipe [pipe-name]`, which will create a new pipe file with the `@Pipe` decorator. For example:
+```typescript
+import { Pipe, PipeTransform } from '@angular/core';
+@Pipe({
+  name: 'exponentialStrength'
+})
+export class ExponentialStrengthPipe implements PipeTransform {
+  transform(value: number, exponent: number): number {
+    return Math.pow(value, exponent);
+  }
+}
+```
+You can then use this custom pipe in your templates like this:
+```html
+<p>{{ 2 | exponentialStrength: 3 }}</p> <!-- This will output 8 (2 raised to the power of 3) -->
+```
 
 ## Best Practices
 1. **Use Angular CLI**: Leverage the Angular CLI for generating components, services, and modules to maintain consistency and save time.
