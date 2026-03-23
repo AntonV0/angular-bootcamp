@@ -157,6 +157,162 @@ export class MyComponent {
 ```
 Services can also be provided at different levels in the application, such as at the root level (available throughout the entire application) or at the component level (available only to a specific component and its children). This allows for flexible and efficient management of dependencies in an Angular application.
 
+## Angular Signals
+
+Signals are a modern reactivity system introduced in Angular to simplify state management and improve performance. They provide a clear and predictable way to manage and track changes in application state without relying heavily on RxJS.
+
+In Angular 18, Signals are stable and are considered a core part of building reactive Angular applications.
+
+---
+
+### What is a Signal?
+
+A Signal is a reactive container that holds a value. When the value changes, Angular automatically updates any part of the application that depends on it.
+
+**Key idea:** A Signal not only stores a value but also notifies Angular when that value changes.
+
+---
+
+### Creating a Signal
+
+```typescript
+import { signal } from '@angular/core';
+
+const count = signal(0);
+```
+
+Reading a value:
+
+```typescript
+count();
+```
+
+Updating a value:
+
+```typescript
+count.set(5);
+```
+
+Updating based on previous value:
+
+```typescript
+count.update(value => value + 1);
+```
+
+---
+
+### Writable Signals
+
+Writable signals allow both reading and writing values.
+
+```typescript
+const userName = signal('Maria');
+
+userName.set('Capner');
+```
+
+---
+
+### Readonly Signals
+
+To prevent external modification, you can create a readonly version of a signal.
+
+```typescript
+const counter = signal(0);
+const readonlyCounter = counter.asReadonly();
+```
+
+This ensures the value cannot be modified outside the service.
+
+---
+
+### Computed Signals
+
+Computed signals derive values from other signals.
+
+```typescript
+import { computed } from '@angular/core';
+
+const price = signal(100);
+const tax = signal(10);
+
+const total = computed(() => price() + tax());
+```
+
+The computed signal automatically recalculates when its dependencies change.
+
+---
+
+### Effects
+
+Effects are used to perform side effects when a signal changes.
+
+```typescript
+import { effect } from '@angular/core';
+
+const count = signal(0);
+
+effect(() => {
+  console.log('Count changed:', count());
+});
+```
+
+Effects run automatically whenever the signal value changes.
+
+---
+
+### Signals in Services (Example)
+
+Signals can be used inside services to manage shared state across components.
+
+```typescript
+export interface Task {
+  id: string;
+  title: string;
+  description: string;
+  status: 'OPEN' | 'IN_PROGRESS' | 'DONE';
+}
+```
+
+```typescript
+import { Injectable, signal } from '@angular/core';
+import { Task } from './task.model';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class TaskService {
+  private tasks = signal<Task[]>([]);
+
+  allTasks = this.tasks.asReadonly();
+
+  addTask(title: string, description: string) {
+    const newTask: Task = {
+      id: new Date().toString(),
+      title,
+      description,
+      status: 'OPEN'
+    };
+
+    this.tasks.update(tasks => [...tasks, newTask]);
+  }
+
+  updateStatus(id: string, status: Task['status']) {
+    this.tasks.update(tasks =>
+      tasks.map(task =>
+        task.id === id ? { ...task, status } : task
+      )
+    );
+  }
+}
+```
+
+---
+
+### Note
+
+With modern Angular, signals can also be used inside services for reactive state management, reducing the need for complex RxJS patterns in simpler use cases.
+
 ## Pipes
 Pipes in Angular are used to transform data in templates. They take in data as input and return a transformed version of that data. Angular provides several built-in pipes, such as `DatePipe`, `CurrencyPipe`, and `UpperCasePipe`, which can be used to format dates, currency values, and text, respectively. You can also create custom pipes to perform specific transformations that are not covered by the built-in pipes. 
 
@@ -292,4 +448,3 @@ In Angular, components are organised in a modular way. Each component typically 
 
 ## Conclusion
 Angular is a powerful framework for building modern web applications. By understanding its core concepts such as components and modules, services, directives, and data binding, developers can create dynamic and responsive applications. The Angular CLI further enhances productivity by providing a streamlined workflow for development and deployment.
-
